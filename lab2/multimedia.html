@@ -1,28 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-    <head>
-      <meta charset=UTF-8>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title›Cidade</title>
-    </head>
-    <body>
-        <header>
-            <h1>A minha Cidade</h1>
-        </header>
-        <main>
-            <h2>Home</h2>
-            <p>A minha cidade é muito linda!!!</p>
-        </main>
-        <footer>
-            <p>DIW 2026</p>
-        </footer>
-     </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cidade</title>
+    <style>
+      .fotografias {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .fotografias img {
+        width: 150px;
+        border-radius: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Luanda</h1>
+    </header>
+    <main>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="local.html">Localização</a>
+        <a href="multimedia.html">Multimédia</a>
+        <a href="info.html">Informação</a>
+      </nav>
+      <h2>Multimédia</h2>
+      <p>Nesta página encontra conteúdo multimedi.a</p>
+      <p>
+        <a href="#fotografias">Fotografias</a>
+        <a href="#video">Vídeo</a>
+        <a href="#poema">Poema</a>
+      </p>
+      <section>
+        <h3 id="fotografias">Fotografias</h3>
+        <div class="fotografias">
+          <img src="images/baia5V.png" alt="vista cidade" />
+          <img src="images/baia4V.png" alt="vista cidade" />
+          <img src="images/baia3V.png" alt="vista cidade" />
+          <img src="images/baia1V.png" alt="vista cidade" />
+          <img src="images/luandaV.png" alt="vista cidade" />
+          <img src="images/bnaV.png" alt="vista cidade" />
+          <img src="images/pontofinal.png" alt="vista cidade" />
+          <img src="images/baia2V.png" alt="vista cidade" />
+        </div>
+      </section>
+      <footer>
+        <p>Angola, 2026</p>
+      </footer>
+      <section>
+        <h3 id="video">Vídeo</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/yc8IfT-L4cw?si=tTI29pC1I91YCTQB"
+          title="YouTube video player"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <section>
+        <h3 id="poema">Poema</h3>
+        <div>
+          <p>Luanda é o poeta ou o poema?</p>
+          <p>Luanda é o poeta ou o poema?</p>
+          <p>Poema que nasce na Mutamba</p>
+          <p>E se aperta no mais cheio maximbombo</p>
+          <p>E se aperta no mais cheio maximbombo</p>
+          <p>Que importa a linha e o destino</p>
+          <p>Se Luanda vai no verso</p>
+          <p>E no canto da sereia?</p>
+          <p>
+            Luanda é um poema que se canta ou pinta e se dança em ritmos amantes
+            e viscosos.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>DIW 2026</p>
+    </footer>
+  </body>
 </html>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="local.html">Localização</a>
-  <a href="multimedia.html">Multimédia</a>
-  <a href="info.html">Informação</a>
-</nav>
-

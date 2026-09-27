@@ -1,0 +1,77 @@
+/* Fundo geral da página */
+body {
+  background-color: #d6d6d6; /* Cinzento de fundo */
+  margin: 0;
+  padding: 30px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Regra comum para limitar a largura e centralizar TODOS os blocos */
+header, nav, .banner-imagens, main, footer {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 1. Cabeçalho verde */
+header {
+  background-color: #38a149;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* 2. Menu de navegação preto */
+nav {
+  background-color: #222222;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 15px; /* Espaço até às imagens */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+/* 3. Bloco com as 3 imagens lado a lado */
+.banner-imagens {
+  display: flex;
+  gap: 15px;           /* Espaço entre cada foto */
+  margin-bottom: 20px; /* Espaço até à caixa branca */
+}
+
+.banner-imagens img {
+  flex: 1;
+  width: 33.33%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* 4. Caixa branca de conteúdo */
+main {
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 20px; /* Espaço até ao rodapé */
+  box-sizing: border-box;
+}
+
+main h2 {
+  margin-top: 0;
+}
+
+/* 5. Rodapé preto */
+footer {
+  background-color: #222222;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 12px;
+}
