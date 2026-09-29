@@ -4,36 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Ellen Pinto</title>
+    <title>Landing Page</title>
   </head>
   <body>
-    <header><h1>Primeira página web!</h1></header>
+    <header>
+       <nav>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#cadeira">InterfacesWeb</a></li>
+          </ul>
+        </nav>
+    </header>
+
     <main>
-      <p>Eis a minha primeira página web!</p>
-      <p>
-        Na unidade curricular de
-        <a href="http://moodle.ensinilusofona.pt/course/view/.php?id=11232">
-          desenvolvimento de interfaces web
+      <section id="inicio" class="hero-section">
+        </nav>
+        <h1>Hero Page</h1>
+        <p class="motivational-text">
+          "O conselho da sabedoria é: Procure obter sabedoria;
+           use tudo o que você possui para adquirir entendimento."
+"
+        </p>
+        <a href="#projetos" class="botao">Ver Projetos</a>
+      </section>
+
+      <section id="projetos" class="proj">
+        <h2>Projetos / Labs</h2>
+        <p class="subtitle">Alguns exercícios desenvolvidos ao longo da UC.</p>
+
+        <a href="lab1/index.html" class="card">
+          <h3>Lab 1</h3>
+          <p>Estrutura base e semântica</p>
         </a>
-        abordaremos as seguintes tecnologias web &#127760;:
-      </p>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>React e Next.js</li>
-      </ul>
-      <p>iremos criar soluçoes criativas</p>
 
-      <nav>
-        <ul>
-          <li><a href="lab1/index.html">Lab1</a></li>
-          <li><a href="lab2/index.html">Lab2</a></li>
-        </ul>
-      </nav>
+        <a href="lab2/index.html" class="card">
+          <h3>Lab 2</h3>
+          <p>Estilos e layout responsivo</p>
+        </a>
 
-      <img src="images/image2.svg" alt="Desenvolvimento de interfaces web" />
+        <a href="lab3/index.html" class="card">
+          <h3>Lab 3</h3>
+          <p>Interatividade com JS</p>
+        </a>
+      </section>
+
+      <section id="cadeira" class="diw-section">
+        <h2>Desenvolvimento de Interfaces Web</h2>
+
+        <article class="diw-text">
+          <p>
+            Na unidade curricular de
+            <a href="http://moodle.ensinilusofona.pt/course/view/.php?id=11232" target="_blank">
+              desenvolvimento de interface web
+            </a>
+            abordaremos as seguintes tecnologias web &#127760;:
+          </p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React e Next.js</li>
+          </ul>
+          <p>Iremos criar soluções criativas!</p>
+        </article>
+
+        <figure class="diw-media">
+          <img src="images/image2.svg"
+        </figure>
+      </section>
+
     </main>
-    <footer>Universidade Lusófona</footer>
+    <footer>
+      <p>©</p>
+    </footer>
   </body>
 </html>

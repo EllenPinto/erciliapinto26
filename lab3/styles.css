@@ -1,69 +1,70 @@
 body {
+  background-color: #d6d6d6;
   margin: 0;
-  background-color: #ede9e9; /* Cinzento de fundo */
+  padding: 30px 0;
   font-family: Arial, sans-serif;
+}
+
+header, nav, .banner-imagens, main, footer {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 header {
   background-color: #38a149;
   color: white;
   text-align: center;
-  padding: 25px ;
-  width: 100%;
+  padding: 25px 0;
 }
 
 header h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 nav {
   background-color: #222222;
   text-align: center;
   padding: 10px 0;
-  width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 15px ;
-  font-size: 10px;
+  margin: 0 12px;
+  font-size: 14px;
 }
 
 .banner-imagens {
   display: flex;
-  width: 100%;
-  margin: 0;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .banner-imagens img {
   flex: 1;
   width: 33.33%;
-  height: 400px;
+  height: 200px;
   object-fit: cover;
 }
 
 main {
   background-color: #ffffff;
-  max-width: 98%;
-  margin: 30px auto;
   padding: 25px;
+  margin-bottom: 20px;
   box-sizing: border-box;
-  margin-top: 40px;
-  margin-bottom: 15px;
 }
 
 main h2 {
-  margin-top: 37px;
+  margin-top: 0;
 }
 
 footer {
   background-color: #222222;
   color: white;
   text-align: center;
-  padding: 9px 0;
-  width: 100%;
-  font-size: 10px;
+  padding: 12px 0;
+  font-size: 12px;
 }
