@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Página com 5 Eventos</title>
+    <link rel="stylesheet" href="/lab4/css/styles.css" />
+
     <!-- Carrega o ficheiro JavaScript externamente -->
   </head>
   <body>
@@ -35,7 +37,7 @@
 
       <!-- 5. Evento Click no Contador -->
       <section>
-        <h2>5. Conta! <span id="contador">0</span></h2>
+        <h2>5. Contar! <span id="contador">0</span></h2>
         <button id="btnContar">Incrementar</button>
       </section>
     </main>
@@ -79,7 +81,7 @@
       // =========================================================
       const campoTexto = document.getElementById("campoTexto");
 
-      const cores = ["lightyellow", "lightblue", "lightgreen"];
+      const cores = ["lightyellow", "lightblue", "lightgreen", "orange"];
       let indiceCor = 0;
 
       campoTexto.addEventListener("keydown", () => {

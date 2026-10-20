@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <title>Página com 5 Eventos</title>
     <!-- Carrega o ficheiro JavaScript externamente -->
-    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
       <!-- 1. Evento Mouseover/Mouseout -->
-      <h1 id="titulo">1. Passa o rato por aqui!</h1>
+      <h1 id="titulo">1. Passa o rato por aqui para saber o meu apelido!</h1>
     </header>
 
     <main>
@@ -25,17 +24,24 @@
       <section>
         <h2>3. Experimenta escrever...</h2>
         <input type="text" id="campoTexto" placeholder="Escreve algo..." />
-        <p id="resultadoTexto"></p>
       </section>
 
       <!-- 4. Evento Change no Select -->
       <section>
-        <h2 id="corDaTela">4. Escolha uma cor em inglês:</h2>
+        <form id="meuForm">
+          <label for="cor">Escolha uma cor:</label>
+          <select id="cor">
+            <option value="" disabled selected>Escolha...</option>
+            <option value="amarelo">Amarelo</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+          </select>
+        </form>
       </section>
 
       <!-- 5. Evento Click no Contador -->
       <section>
-        <h2>5. Conta! <span id="contador">0</span></h2>
+        <h2>5. Contar! <span id="contador">0</span></h2>
         <button id="btnContar">Incrementar</button>
       </section>
     </main>
@@ -47,11 +53,11 @@
       const titulo = document.querySelector("#titulo");
 
       titulo.addEventListener("mouseover", () => {
-        titulo.innerText = "1. Passaste o rato por aqui!";
+        titulo.innerText = "Pinto!";
       });
 
       titulo.addEventListener("mouseout", () => {
-        titulo.innerText = "1. Passa o rato por aqui!";
+        titulo.innerText = "1. Passa o rato por aqui para saber o meu apelido!";
       });
 
       // =========================================================
@@ -77,18 +83,14 @@
       // =========================================================
       // EVENTO 3: Mostrar texto ao escrever (input)
       // =========================================================
-      const campoTexto = document.querySelector("#campoTexto");
-      const resultadoTexto = document.querySelector("#resultadoTexto");
-      const seccaoInput = document.querySelector("#seccaoInput");
+      const campoTexto = document.getElementById("campoTexto");
 
-      const cores = ["lightyellow", "lightblue", "lightgreen"];
+      const cores = ["lightyellow", "lightblue", "lightgreen", "orange"];
       let indiceCor = 0;
 
-      campoTexto.addEventListener("input", () => {
-        resultadoTexto.innerText = campoTexto.value;
-
+      campoTexto.addEventListener("keydown", () => {
         // Aplica a cor atual
-        seccaoInput.style.backgroundColor = cores[indiceCor];
+        campoTexto.style.backgroundColor = cores[indiceCor];
 
         // Passa para a próxima cor (0 -> 1 -> 2 -> 0 -> 1...)
         indiceCor = (indiceCor + 1) % cores.length;
@@ -97,10 +99,10 @@
       // =========================================================
       // EVENTO 4: Mudar cor do texto ao selecionar no select (change)
       // =========================================================
-      const selectCor = document.querySelector("#selectCor");
+      const selectCor = document.getElementById("cor");
 
       selectCor.addEventListener("change", () => {
-        document.body.style.color = selectCor.value;
+        document.body.style.backgroundColor = selectCor.value;
       });
 
       // =========================================================
@@ -119,5 +121,6 @@
     <footer>
       <p>Laboratório de JavaScript</p>
     </footer>
+    <script src="script/main.js" defer></script>
   </body>
 </html>
