@@ -1,81 +1,89 @@
 // A. declaração de variáveis
-const nodeInputNumero = document.querySelector('#colecao ~ section input[type="number"]');
-const nodeInputSubmit = document.querySelector('#colecao ~ section input[type="submit"]');
-const nodeUlColecao = document.querySelector('#colecao ul');
-const nodeUlRepetidos = document.querySelector('#repetidos ul');
-const form = document.querySelector('form');
+const nodeInputNumero = document.querySelector("#colecao + section form input[type='number']");
+const nodeInputSubmit = document.querySelector("#colecao + section form input[type='submit']");
+const nodeUlColecao = document.querySelector("#colecao ul");
+const nodeSpanTotal = document.querySelector("#colecao h3 span");
+const form = document.querySelector("#colecao + section form");
+
+const nodeUlRepetidos = document.querySelector("#repetidos ul");
+const nodeSpanTotalRepetidos = document.querySelector("#repetidos h3 span");
 
 const colecao = [];
 const repetidos = [];
+let totalRepetidos = 0;
 
 // B. event handlers
-function atualizaLista(lista, nodeUl) {
-    // Apaga o conteúdo do nó UL
-    nodeUl.innerHTML = '';
-
-    // Carrega o conteúdo da lista no nó UL com o método forEach
-    lista.forEach((numero, index) => {
-        const li = document.createElement('li');
-
-        if (lista === repetidos) {
-            // Insere a estrutura HTML em texto com o botão eliminar
-            li.innerHTML = `Cromo nº ${numero} <button data-index="${index}">Eliminar</button>`;
-        } else {
-            li.textContent = `Cromo nº ${numero}`;
-        }
-
-        nodeUl.appendChild(li);
-    });
-
-    // C. event listeners para os botões eliminar
-    if (lista === repetidos) {
-        const botoesEliminar = nodeUl.querySelectorAll('button');
-        botoesEliminar.forEach((botao) => {
-            botao.onclick = (event) => {
-                const index = event.target.getAttribute('data-index');
-                repetidos.splice(index, 1);
-                atualizaLista(repetidos, nodeUlRepetidos);
-                atualizaContador();
-            };
-        });
-    }
-
-    // Atualiza o contador de cromos
-    atualizaContador();
-}
-
-function atualizaContador() {
-    const spanColecao = document.querySelector('#colecao h3 span');
-    if (spanColecao) {
-        spanColecao.textContent = colecao.length;
-    }
-
-    const spanRepetidos = document.querySelector('#repetidos h3 span');
-    if (spanRepetidos) {
-        spanRepetidos.textContent = repetidos.length;
-    }
-}
-
 function guardaCarta() {
-    // Vai buscar o valor no nodeInputNumero.value
-    const valor = nodeInputNumero.value;
+    const numero = Number(nodeInputNumero.value);
 
-    if (!valor) return;
-
-    const numero = parseInt(valor, 10);
-
-    // Verifica se já existe na coleção
     if (colecao.includes(numero)) {
         repetidos.push(numero);
         repetidos.sort((a, b) => a - b);
-        atualizaLista(repetidos, nodeUlRepetidos);
+        totalRepetidos++;
+
+        atualizaRepetidos();
     } else {
         colecao.push(numero);
         colecao.sort((a, b) => a - b);
+
         atualizaLista(colecao, nodeUlColecao);
+        nodeSpanTotal.textContent = colecao.length;
     }
 
-    nodeInputNumero.value = '';
+    guardaDados(); // NOVO
+
+    nodeInputNumero.value = "";
+    nodeInputNumero.focus();
+}
+
+function atualizaLista(lista, nodeUl) {
+    nodeUl.innerHTML = "";
+
+    lista.forEach((numero) => {
+        const nodeLi = document.createElement("li");
+
+        if (nodeUl === nodeUlRepetidos) {
+            nodeLi.innerHTML = `${numero} <button type="button">Eliminar</button>`;
+        } else {
+            nodeLi.textContent = numero;
+        }
+
+        nodeUl.appendChild(nodeLi);
+    });
+}
+
+function eliminaRepetido(indice) {
+    repetidos.splice(indice, 1);
+    totalRepetidos--;
+
+    atualizaRepetidos();
+    guardaDados(); // NOVO
+}
+
+function atualizaRepetidos() {
+    atualizaLista(repetidos, nodeUlRepetidos);
+    nodeSpanTotalRepetidos.textContent = totalRepetidos;
+    associaBotoesEliminar();
+}
+
+// NOVO: guarda as duas listas no localStorage (só aceita texto, por isso JSON.stringify)
+function guardaDados() {
+    localStorage.setItem("colecao", JSON.stringify(colecao));
+    localStorage.setItem("repetidos", JSON.stringify(repetidos));
+}
+
+// NOVO: lê as listas guardadas e repõe-nas nas variáveis
+function carregaDados() {
+    const colecaoGuardada = JSON.parse(localStorage.getItem("colecao")) ?? [];
+    const repetidosGuardados = JSON.parse(localStorage.getItem("repetidos")) ?? [];
+
+    colecao.push(...colecaoGuardada);
+    repetidos.push(...repetidosGuardados);
+    totalRepetidos = repetidos.length;
+
+    atualizaLista(colecao, nodeUlColecao);
+    nodeSpanTotal.textContent = colecao.length;
+    atualizaRepetidos();
 }
 
 // C. event listeners
@@ -83,3 +91,16 @@ form.onsubmit = (event) => {
     event.preventDefault();
     guardaCarta();
 };
+
+function associaBotoesEliminar() {
+    const botoesEliminar = document.querySelectorAll("#repetidos ul button");
+
+    botoesEliminar.forEach((botao, indice) => {
+        botao.onclick = () => {
+            eliminaRepetido(indice);
+        };
+    });
+}
+
+// NOVO: ao abrir a página, carrega os dados guardados
+carregaDados();
