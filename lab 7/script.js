@@ -1,47 +1,31 @@
 // A. Estado e variáveis com referência de elementos do DOM
-const divProdutos = document.querySelector("#produtos"); // ajuste ao id/classe do div no seu index.html
+const divProdutos = document.querySelector("#produtos");
+
+// cria a chave com lista vazia, caso ainda não exista
+if (!localStorage.getItem("produtos-selecionados")) {
+    localStorage.setItem("produtos-selecionados", JSON.stringify([]));
+}
 
 // B. Funções utilitárias
-function criarProduto(produto) {
-    const article = document.createElement("article");
+const botao = document.createElement("button");
+botao.textContent = "+ Adicionar ao Cesto";
 
-    const titulo = document.createElement("h2");
-    titulo.textContent = produto.title;
-
-    const imagem = document.createElement("img");
-    imagem.src = produto.image;
-    imagem.alt = produto.title;
-
-    const preco = document.createElement("p");
-    preco.classList.add("preco");
-    preco.textContent = "Custo total: " + produto.price + " €";
-
-    const descricao = document.createElement("p");
-    descricao.classList.add("descricao");
-    descricao.textContent = produto.description;
-
-    const botao = document.createElement("button");
-    botao.textContent = "+ Adicionar ao Cesto";
-
-    article.append(titulo, imagem, preco, descricao, botao);
-
-    return article;
-}
+// despoletado quando o botão é clicado
+botao.addEventListener("click", () => {
+    adicionarAoCesto(produto);
+});
 
 // C. Event handlers
-function renderizarProdutos(produtos) {
-    produtos.forEach((produto) => {
-        // passo 2: ver o resultado na consola
-        console.log(produto.title);
-        console.log(produto.category);
-        console.log(produto);
+function adicionarAoCesto(produto) {
+    // ler
+    const selecionados = JSON.parse(localStorage.getItem("produtos-selecionados"));
 
-        // passo 4: criar o article e inseri-lo no div
-        const article = criarProduto(produto);
-        divProdutos.append(article);
-    });
+    // alterar
+    selecionados.push(produto);
+
+    // guardar de volta
+    localStorage.setItem("produtos-selecionados", JSON.stringify(selecionados));
 }
-
 // D. Event Listeners
 
 // E. Inicialização
