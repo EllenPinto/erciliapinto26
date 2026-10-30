@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background-color: #f2f2f2;
+}
+
+/* cabeçalho roxo */
+header {
+    background-color: #440242;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+main h2 {
+    text-align: center;
+    margin: 48px 0 32px;
+}
+
+/* contentor: flex + flex-wrap */
+#produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+}
+
+/* cartão */
+#produtos article {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#produtos article h2 {
+    font-size: 1.3rem;
+    margin: 0 0 16px;
+}
+
+#produtos article img {
+    height: 160px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#produtos article .descricao {
+    background-color: #f5f5f5;
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: left;
+    padding: 12px;
+}
+
+/* empurra o botão para o fundo do cartão */
+#produtos article button {
+    margin-top: auto;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    padding: 24px;
+}
