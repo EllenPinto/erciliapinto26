@@ -215,7 +215,7 @@ nav a {
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .diw-section {
     flex-direction: column;
     text-align: center;
