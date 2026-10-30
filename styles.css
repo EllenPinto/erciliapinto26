@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url('images/BTS.jpeg');
+  background-image: url('images/BTS2.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,12 +46,12 @@
   margin: 0;
 }
 
-header,footer, section, footer {
+header, footer, section {
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
   font-size: 5vh;
-  background-size: cover
+  background-size: cover;
 }
 
 header {
@@ -66,20 +66,7 @@ header {
 }
 
 section:nth-child(1) {
-  height: 90vh;
   background-image: url(images/BTS2.jpg);
-  height: 100vh;
-  background-size: cover
-}
-
-section:nth-child(2) {
-  height: 100vh;
-  background: red;
-  height: 100vh;
-
-}
-
-section:nth-child(3) {
   height: 100vh;
 }
 
@@ -90,23 +77,31 @@ footer {
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
 }
 
 nav a {
-    text-decoration: none;
-    color:red;
+  text-decoration: none;
+  color: red;
 }
 
+/* ---------- Projetos ---------- */
 .proj {
   width: 100%;
+  min-height: 100vh;
   background-color: #fceade;
   padding: 60px 20px;
   box-sizing: border-box;
+
+  flex-wrap: wrap;        /* título, subtítulo e cards em linhas diferentes */
+  align-content: center;  /* grupo todo centrado na vertical */
+  align-items: stretch;   /* cards da mesma linha com a mesma altura */
+  gap: 16px;
+}   /* <- esta chave estava em falta */
 
 .proj h2,
 .proj .subtitle {
@@ -156,6 +151,7 @@ nav a {
   margin: 0;
 }
 
+/* ---------- InterfacesWeb ---------- */
 .diw-section {
   width: 100%;
   padding: 60px 20px;
@@ -198,12 +194,12 @@ nav a {
 }
 
 .diw-text ul {
+  font-size: 1.1rem;
   margin: 15px 0 20px 25px;
   line-height: 1.8;
   color: #333;
 }
 
-/* Ajustes da imagem */
 .diw-media {
   margin: 0;
   text-align: center;
@@ -215,7 +211,7 @@ nav a {
   height: auto;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .diw-section {
     flex-direction: column;
     text-align: center;
@@ -227,5 +223,4 @@ nav a {
     padding-left: 0;
     margin-left: 0;
   }
-}
 }
